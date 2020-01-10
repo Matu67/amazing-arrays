@@ -3,7 +3,7 @@
 
 Make and manipulate arrays with random numbers. Arrays are graphed; you are also able to sort and search these arrays using different algorithms.
 
-![](header.png)
+![](header.png =100x100)
 
 ## Meta
 
