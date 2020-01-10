@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="664.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+  <tabs>
+    <Tab closable="false" text="Sorting and Searching">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="664.0">
+                     <center>
+                        <BarChart fx:id="arrayGraph" alternativeRowFillVisible="false" barGap="2.0" categoryGap="0.0" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="275.0" prefWidth="450.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false" BorderPane.alignment="CENTER">
+                           <xAxis>
+                              <CategoryAxis prefHeight="3.0" prefWidth="393.0" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                     </center>
+                     <right>
+                        <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="214.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0" spacing="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="43.0" text="No. of Items" textAlignment="CENTER" wrapText="true" />
+                                    <Spinner fx:id="itemBox" editable="true" prefHeight="25.0" prefWidth="65.0" />
+                                    <Button fx:id="btnGenerate" mnemonicParsing="false" onAction="#generate" text="Generate" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0" spacing="5.0">
+                                 <children>
+                                    <ChoiceBox fx:id="sortBox" prefHeight="25.0" prefWidth="85.0" />
+                                    <Button fx:id="btnSort" mnemonicParsing="false" onAction="#sort" text="Sort" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="55.0" prefHeight="45.0" prefWidth="600.0" spacing="5.0">
+                                 <children>
+                                    <Spinner fx:id="searchTermBox" editable="true" prefHeight="25.0" prefWidth="65.0" />
+                                    <ChoiceBox fx:id="searchBox" prefHeight="25.0" prefWidth="74.0" />
+                                    <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="62.0" text="Search" />
+                                 </children>
+                              </HBox>
+                              <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" />
+                              <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0" spacing="5.0">
+                                 <children>
+                                    <Button fx:id="btnReset" mnemonicParsing="false" onAction="#reset" text="Reset" />
+                                    <Button mnemonicParsing="false" onAction="#exit" text="Exit" />
+                                 </children>
+                              </HBox>
+                              <ImageView fitHeight="195.0" fitWidth="200.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@assets/meme.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                     </right>
+                  </BorderPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab closable="false" text="History">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="table" prefHeight="401.0" prefWidth="664.0">
+                     <columns>
+                        <TableColumn prefWidth="82.5" text="ArrayID" >
+                        <cellValueFactory> 
+                     	 		<PropertyValueFactory property="arrayID" />
+                    	  	</cellValueFactory>
+                   	   </TableColumn>
+                        <TableColumn prefWidth="106.5" text="No. of Objects" >
+                        <cellValueFactory> 
+                     	 		<PropertyValueFactory property="n" />
+                    	  	</cellValueFactory>
+                   	   </TableColumn>
+                        <TableColumn prefWidth="167.5" text="Sort/Search Type" >
+                        <cellValueFactory> 
+                     	 		<PropertyValueFactory property="sType" />
+                    	  	</cellValueFactory>
+                    	  	 </TableColumn>
+                        <TableColumn prefWidth="90.5" text="Time Elapsed" >
+                        <cellValueFactory> 
+                     	 		<PropertyValueFactory property="time" />
+                    	  	</cellValueFactory>
+                    	  	 </TableColumn>
+                        <TableColumn prefWidth="62.0" text="Loops" >
+                        <cellValueFactory> 
+                     	 		<PropertyValueFactory property="loopCounter" />
+                    	  	</cellValueFactory>
+                    	  	 </TableColumn>
+                        <TableColumn prefWidth="89.0" text="Comparisons" >
+                        <cellValueFactory> 
+                     	 		<PropertyValueFactory property="comparisonCounter" />
+                    	  	</cellValueFactory>
+                    	  	 </TableColumn>
+                        <TableColumn prefWidth="65.5" text="Shifts" >
+                        <cellValueFactory> 
+                     	 		<PropertyValueFactory property="shiftCounter" />
+                    	  	</cellValueFactory>
+                    	  	 </TableColumn>
+                     </columns>
+                  </TableView>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
